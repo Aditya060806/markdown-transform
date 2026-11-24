@@ -1,0 +1,48 @@
+﻿=== Issue #198 reproduction — FIX REF ===
+HEAD: f50e48e2f847c2a96193c8f812f07137ca367fad
+Ref : f50e48e feat(markdown-html): add opt-in `fragment` option for Document output (#198)
+
+=== Running: npx jest src/_repro_198.test.ts --no-coverage ===
+
+  console.log
+    [default]
+    <html>
+    <head><meta charset="UTF-8"></head>
+    <body>
+    <div class="document">
+    <p>Hello</p>
+    </div>
+    </body>
+    </html>
+
+      at Object.<anonymous> (src/_repro_198.test.ts:29:17)
+
+  console.log
+    [fragment:true]
+    <div class="document">
+    <p>Hello</p>
+    </div>
+
+      at Object.<anonymous> (src/_repro_198.test.ts:37:17)
+
+node.exe : PASS src/_repro_198.test.ts (7.985 s)
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (PASS src/_repro_198.test.t 
+   s (7.985 s):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  issue #198 repro ΓÇö HTML transform document fragment
+    ΓêÜ default call wraps the Document in <html>...</html> (104 ms)
+    ΓêÜ { fragment: true } emits only <div class="document"> output (28 
+ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        8.596 s, estimated 9 s
+Ran all test suites matching /src\\_repro_198.test.ts/i.
+
+Exit code: 0

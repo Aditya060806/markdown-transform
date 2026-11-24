@@ -1,0 +1,79 @@
+﻿=== Issue #198 reproduction — BASE REF ===
+HEAD: 15a54f71194258211ca7f40354b280119b88c1d9
+Ref : 15a54f7 chore(actions): publish v2.0.0 to npm (#685)
+
+=== Running: npx jest src/_repro_198.test.ts --no-coverage ===
+
+  console.log
+    [default]
+    <html>
+    <head><meta charset="UTF-8"></head>
+    <body>
+    <div class="document">
+    <p>Hello</p>
+    </div>
+    </body>
+    </html>
+
+      at Object.<anonymous> (src/_repro_198.test.ts:29:17)
+
+  console.log
+    [fragment:true]
+    <html>
+    <head><meta charset="UTF-8"></head>
+    <body>
+    <div class="document">
+    <p>Hello</p>
+    </div>
+    </body>
+    </html>
+
+      at Object.<anonymous> (src/_repro_198.test.ts:37:17)
+
+node.exe : FAIL src/_repro_198.test.ts (8.411 s)
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (FAIL src/_repro_198.test.t 
+   s (8.411 s):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  issue #198 repro ΓÇö HTML transform document fragment
+    ΓêÜ default call wraps the Document in <html>...</html> (115 ms)
+    ├ù { fragment: true } emits only <div class="document"> output (63 
+ms)
+
+  ΓùÅ issue #198 repro ΓÇö HTML transform document fragment ΓÇ║ { 
+fragment: true } emits only <div class="document"> output
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    [0m [90m 36 |[39m         [90m// eslint-disable-next-line 
+no-console[39m
+     [90m 37 |[39m         
+console[33m.[39mlog([32m'[fragment:true]\n'[39m [33m+[39m 
+html)[33m;[39m
+    [31m[1m>[22m[39m[90m 38 |[39m         
+expect(html[33m.[39mstartsWith([32m'<div 
+class="document">'[39m))[33m.[39mtoBe([36mtrue[39m)[33m;[39m
+     [90m    |[39m                                                    
+       [31m[1m^[22m[39m
+     [90m 39 |[39m         expect(html[33m.[39mendsWith([32m'</div>
+'[39m))[33m.[39mtoBe([36mtrue[39m)[33m;[39m
+     [90m 40 |[39m         expect(html)[33m.[39mnot[33m.[39mtoMatc
+h([35m/<html>|<head\b|<body>/[39m)[33m;[39m
+     [90m 41 |[39m     })[33m;[39m[0m
+
+      at Object.<anonymous> (src/_repro_198.test.ts:38:59)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 passed, 2 total
+Snapshots:   0 total
+Time:        9.011 s
+Ran all test suites matching /src\\_repro_198.test.ts/i.
+
+Exit code: 1

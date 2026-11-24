@@ -1,0 +1,150 @@
+﻿=== Issue #198 — committed test suite (fix ref) ===
+HEAD: f50e48e2f847c2a96193c8f812f07137ca367fad
+Ref : f50e48e feat(markdown-html): add opt-in `fragment` option for Document output (#198)
+
+=== Running: npx jest src/HtmlTransformer.test.ts --no-coverage --verbose ===
+
+  console.error
+    [xmldom fatalError]	missing root element 
+    @#[line:0,col:undefined]
+
+    [0m [90m 186 |[39m [36mexport[39m [36mfunction[39m parseHtmlBlock(input[33m:[39m string)[33m:[39m any {
+     [90m 187 |[39m     [36mtry[39m {
+    [31m[1m>[22m[39m[90m 188 |[39m         [36mconst[39m doc [33m=[39m ([36mnew[39m [33mDOMParser[39m())[33m.[39mparseFromString(input[33m,[39m [32m'text/html'[39m)[33m;[39m
+     [90m     |[39m                                       [31m[1m^[22m[39m
+     [90m 189 |[39m         [36mconst[39m item[33m:[39m any [33m=[39m doc[33m.[39mchildNodes[[35m0[39m][33m;[39m
+     [90m 190 |[39m         [36mconst[39m attributes [33m=[39m item[33m.[39mattributes[33m;[39m
+     [90m 191 |[39m         [36mconst[39m attributeObject[33m:[39m [33mRecord[39m[33m<[39m[33mstring[39m[33m,[39m string[33m>[39m [33m=[39m {}[33m;[39m[0m
+
+      at DOMHandler.reportError (../../node_modules/@xmldom/xmldom/lib/dom-parser.js:466:12)
+      at DOMHandler.fatalError (../../node_modules/@xmldom/xmldom/lib/dom-parser.js:489:8)
+      at DOMParser.Object.<anonymous>.DOMParser.parseFromString (../../node_modules/@xmldom/xmldom/lib/dom-parser.js:255:20)
+      at parseHtmlBlock (../markdown-common/src/CommonMarkUtils.ts:188:39)
+      at Object.enter (../markdown-common/src/tocommonmarkrules.ts:143:34)
+      at FromMarkdownIt.blockToCommonMark (../markdown-common/src/FromMarkdownIt.ts:152:40)
+      at FromMarkdownIt.toCommonMark (../markdown-common/src/FromMarkdownIt.ts:178:31)
+      at CommonMarkTransformer.fromTokens (../markdown-common/src/CommonMarkTransformer.ts:65:37)
+      at CommonMarkTransformer.fromMarkdown (../markdown-common/src/CommonMarkTransformer.ts:77:21)
+      at CiceroMarkTransformer.fromMarkdown (../markdown-cicero/src/CiceroMarkTransformer.ts:122:47)
+      at Object.<anonymous> (src/HtmlTransformer.test.ts:49:44)
+
+  console.error
+    [xmldom fatalError]	missing root element 
+    @#[line:0,col:undefined]
+
+    [0m [90m 186 |[39m [36mexport[39m [36mfunction[39m parseHtmlBlock(input[33m:[39m string)[33m:[39m any {
+     [90m 187 |[39m     [36mtry[39m {
+    [31m[1m>[22m[39m[90m 188 |[39m         [36mconst[39m doc [33m=[39m ([36mnew[39m [33mDOMParser[39m())[33m.[39mparseFromString(input[33m,[39m [32m'text/html'[39m)[33m;[39m
+     [90m     |[39m                                       [31m[1m^[22m[39m
+     [90m 189 |[39m         [36mconst[39m item[33m:[39m any [33m=[39m doc[33m.[39mchildNodes[[35m0[39m][33m;[39m
+     [90m 190 |[39m         [36mconst[39m attributes [33m=[39m item[33m.[39mattributes[33m;[39m
+     [90m 191 |[39m         [36mconst[39m attributeObject[33m:[39m [33mRecord[39m[33m<[39m[33mstring[39m[33m,[39m string[33m>[39m [33m=[39m {}[33m;[39m[0m
+
+      at DOMHandler.reportError (../../node_modules/@xmldom/xmldom/lib/dom-parser.js:466:12)
+      at DOMHandler.fatalError (../../node_modules/@xmldom/xmldom/lib/dom-parser.js:489:8)
+      at DOMParser.Object.<anonymous>.DOMParser.parseFromString (../../node_modules/@xmldom/xmldom/lib/dom-parser.js:255:20)
+      at parseHtmlBlock (../markdown-common/src/CommonMarkUtils.ts:188:39)
+      at Object.enter (../markdown-common/src/tocommonmarkrules.ts:71:34)
+      at FromMarkdownIt.inlineToCommonMark (../markdown-common/src/FromMarkdownIt.ts:83:40)
+      at ../markdown-common/src/FromMarkdownIt.ts:61:28
+      at FromMarkdownIt.blockToCommonMark (../markdown-common/src/FromMarkdownIt.ts:138:77)
+      at FromMarkdownIt.toCommonMark (../markdown-common/src/FromMarkdownIt.ts:178:31)
+      at CommonMarkTransformer.fromTokens (../markdown-common/src/CommonMarkTransformer.ts:65:37)
+      at CommonMarkTransformer.fromMarkdown (../markdown-common/src/CommonMarkTransformer.ts:77:21)
+      at CiceroMarkTransformer.fromMarkdown (../markdown-cicero/src/CiceroMarkTransformer.ts:122:47)
+      at Object.<anonymous> (src/HtmlTransformer.test.ts:49:44)
+
+  console.error
+    [xmldom fatalError]	missing root element 
+    @#[line:0,col:undefined]
+
+    [0m [90m 186 |[39m [36mexport[39m [36mfunction[39m parseHtmlBlock(input[33m:[39m string)[33m:[39m any {
+     [90m 187 |[39m     [36mtry[39m {
+    [31m[1m>[22m[39m[90m 188 |[39m         [36mconst[39m doc [33m=[39m ([36mnew[39m [33mDOMParser[39m())[33m.[39mparseFromString(input[33m,[39m [32m'text/html'[39m)[33m;[39m
+     [90m     |[39m                                       [31m[1m^[22m[39m
+     [90m 189 |[39m         [36mconst[39m item[33m:[39m any [33m=[39m doc[33m.[39mchildNodes[[35m0[39m][33m;[39m
+     [90m 190 |[39m         [36mconst[39m attributes [33m=[39m item[33m.[39mattributes[33m;[39m
+     [90m 191 |[39m         [36mconst[39m attributeObject[33m:[39m [33mRecord[39m[33m<[39m[33mstring[39m[33m,[39m string[33m>[39m [33m=[39m {}[33m;[39m[0m
+
+      at DOMHandler.reportError (../../node_modules/@xmldom/xmldom/lib/dom-parser.js:466:12)
+      at DOMHandler.fatalError (../../node_modules/@xmldom/xmldom/lib/dom-parser.js:489:8)
+      at DOMParser.Object.<anonymous>.DOMParser.parseFromString (../../node_modules/@xmldom/xmldom/lib/dom-parser.js:255:20)
+      at parseHtmlBlock (../markdown-common/src/CommonMarkUtils.ts:188:39)
+      at Object.enter (../markdown-common/src/tocommonmarkrules.ts:71:34)
+      at FromMarkdownIt.inlineToCommonMark (../markdown-common/src/FromMarkdownIt.ts:83:40)
+      at ../markdown-common/src/FromMarkdownIt.ts:61:28
+      at FromMarkdownIt.blockToCommonMark (../markdown-common/src/FromMarkdownIt.ts:138:77)
+      at FromMarkdownIt.toCommonMark (../markdown-common/src/FromMarkdownIt.ts:178:31)
+      at CommonMarkTransformer.fromTokens (../markdown-common/src/CommonMarkTransformer.ts:65:37)
+      at CommonMarkTransformer.fromMarkdown (../markdown-common/src/CommonMarkTransformer.ts:77:21)
+      at CiceroMarkTransformer.fromMarkdown (../markdown-cicero/src/CiceroMarkTransformer.ts:122:47)
+      at Object.<anonymous> (src/HtmlTransformer.test.ts:49:44)
+
+node.exe : PASS src/HtmlTransformer.test.ts (8.571 s)
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (PASS src/HtmlTr...st.ts (8 
+   .571 s):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  markdown <-> html
+    ΓêÜ converts blockquote.md to html (131 ms)
+    ΓêÜ converts codeblock-info.md to html (15 ms)
+    ΓêÜ converts codeblock.md to html (87 ms)
+    ΓêÜ converts emph-strong.md to html (10 ms)
+    ΓêÜ converts emph.md to html (7 ms)
+    ΓêÜ converts h1.md to html (6 ms)
+    ΓêÜ converts h2.md to html (5 ms)
+    ΓêÜ converts h3.md to html (5 ms)
+    ΓêÜ converts h4.md to html (7 ms)
+    ΓêÜ converts h5.md to html (5 ms)
+    ΓêÜ converts h6.md to html (4 ms)
+    ΓêÜ converts html-inline.md to html (18 ms)
+    ΓêÜ converts html-mixed.md to html (15 ms)
+    ΓêÜ converts inline-code.md to html (5 ms)
+    ΓêÜ converts linebreak.md to html (8 ms)
+    ΓêÜ converts link.md to html (9 ms)
+    ΓêÜ converts multiline-html-block.md to html (9 ms)
+    ΓêÜ converts ol-tight.md to html (13 ms)
+    ΓêÜ converts ol.md to html (10 ms)
+    ΓêÜ converts paragraphs.md to html (4 ms)
+    ΓêÜ converts strong.md to html (6 ms)
+    ΓêÜ converts table.md to html (16 ms)
+    ΓêÜ converts table_complex.md to html (19 ms)
+    ΓêÜ converts text.md to html (4 ms)
+    ΓêÜ converts thematicbreak.md to html (5 ms)
+    ΓêÜ converts ul-tight.md to html (10 ms)
+    ΓêÜ converts ul.md to html (11 ms)
+    ΓêÜ converts unwrapped <li> to html (7 ms)
+  html table deserialization
+    ΓêÜ deserializes a table caption before the table (6 ms)
+    ΓêÜ flattens block content in a caption to inline-only Strong 
+children (5 ms)
+    ΓêÜ does not leak a caption node when it appears outside a table (1 
+ms)
+    ΓêÜ normalizes whitespace in table cells (2 ms)
+    ΓêÜ promotes tbody rows with header cells to table head when thead 
+is missing (4 ms)
+    ΓêÜ keeps tables without captions as a single table node (3 ms)
+  ciceromark <-> html
+    ΓêÜ converts acceptance.json to and from CiceroMark (24 ms)
+    ΓêÜ converts fixedinterest.json to and from CiceroMark (9 ms)
+    ΓêÜ converts latedelivery.json to and from CiceroMark (15 ms)
+  renderVariableValue - relationship variables
+    ΓêÜ extracts identifier from a quoted resource URI value (1 ms)
+    ΓêÜ leaves primitive variable values unchanged (1 ms)
+    ΓêÜ handles bare (unquoted) resource URI values (1 ms)
+  fragment option
+    ΓêÜ wraps output in <html>...</html> by default (23 ms)
+    ΓêÜ emits only the <div class="document"> fragment when fragment: 
+true (23 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       42 passed, 42 total
+Snapshots:   65 passed, 65 total
+Time:        9.164 s, estimated 14 s
+Ran all test suites matching /src\\HtmlTransformer.test.ts/i.
+
+Exit code: 0
